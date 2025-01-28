@@ -1,0 +1,203 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, rgba(40, 75, 99, 1), rgba(84, 134, 135, 0.9), rgba(176, 65, 62, 1));
+    background-size: 400% 400%;
+    animation: dynamicBackground 3s linear infinite;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Dynamic Background Animation */
+@keyframes dynamicBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Game Board */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    padding: 1vmin;
+    position: relative;
+    animation: boardPulse 4s infinite;
+}
+
+/* Board Pulse Animation */
+@keyframes boardPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Boxes */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 8vmin;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(247, 215, 116, 1), rgba(255, 215, 64, 0.9));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/* Box Hover Effect */
+.box:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(228, 201, 106, 1), rgba(249, 192, 50, 0.9));
+    color: #b0413e;
+    border-color: rgba(255, 255, 255, 0.9);
+    animation: boxHoverGlow 0.5s infinite alternate;
+}
+
+/* Box Hover Glow Animation */
+@keyframes boxHoverGlow {
+    0% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 16px rgba(255, 215, 64, 0.6);
+    }
+}
+
+/* Box Click Effect */
+.box:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, rgba(176, 65, 62, 1), rgba(255, 102, 99, 0.9));
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Buttons */
+button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(61, 61, 61, 1), rgba(25, 25, 19, 1));
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, rgba(87, 87, 87, 1), rgba(41, 41, 41, 1));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset Button */
+#reset-btn {
+    margin-right: 1rem;
+}
+
+/* Paragraph and Messages */
+#msg {
+    color: rgba(247, 215, 116, 1);
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    animation: textGlow 2s infinite alternate;
+}
+
+/* Text Glow Animation */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0px 0px 8px rgba(247, 215, 116, 0.3);
+    }
+    100% {
+        text-shadow: 0px 0px 15px rgba(247, 215, 116, 0.8);
+    }
+}
+
+/* Winning Message Highlight Effect */
+#msg.win {
+    color: rgba(176, 65, 62, 1);
+    text-shadow: 0px 0px 8px rgba(255, 0, 0, 0.8);
+}
+
+/* Container for Messages */
+.msg-container {
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Hide Class */
+.hide {
+    display: none;
+}
